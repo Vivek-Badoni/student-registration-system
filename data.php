@@ -3,11 +3,11 @@
 include("connection.php");
 
 if (isset($_POST['save'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $dob = $_POST['dob'];
-    $message = $_POST['message'];
+    $name =trim($_POST['name']);
+    $email =trim( $_POST['email']);
+    $phone = trim($_POST['phone']);
+    $dob =trim( $_POST['dob']);
+    $message = trim($_POST['message']);
     $file = $_FILES['file']['name'];
     $tmp = $_FILES['file']['tmp_name'];
 
@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
     move_uploaded_file($tmp, "uploads/" . $file);
 
     $check = isset($_POST['check']) ? implode(", ", $_POST['check']) : "";
-    $gender = $_POST['gender'];
+    $gender = trim ($_POST['gender']);
 
     $query = "INSERT INTO users
     (name,email,phone,dob,message,file,`check`,gender)
