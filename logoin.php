@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,12 +100,12 @@
                             <div class="mb-3 g-4">
                                 <label><b>Qualification :</b></label><br>
 
-                                <input type="checkbox" name="check[]" value="10" > 10th
-                                <input type="checkbox" name="check[]" value="12" > 12th
-                                <input type="checkbox" name="check[]" value="Graduation" > Graduation
+                                <input type="checkbox" name="check[]" value="10"> 10th
+                                <input type="checkbox" name="check[]" value="12"> 12th
+                                <input type="checkbox" name="check[]" value="Graduation"> Graduation
                             </div>
-                            <div class="mb-3" >
-                                <label ><b>Gender :</b></label><br>
+                            <div class="mb-3">
+                                <label><b>Gender :</b></label><br>
 
                                 <input type="radio" name="gender" value="Male"> Male
                                 <input type="radio" name="gender" value="Female"> Female
@@ -106,8 +114,8 @@
 
                             <div class="mb-3">
                                 <label class="form-label"><b>Message</b></label>
-                                <textarea class="form-control" name="messagee" rows="4"
-                                    placeholder="Write Your Message" required></textarea>
+                                <textarea class="form-control" name="messagee" rows="4" placeholder="Write Your Message"
+                                    required></textarea>
                             </div>
 
                             <div class="d-flex gap-3">
@@ -140,7 +148,7 @@
                         email: true
                     },
 
-                    phone : {
+                    phone: {
                         required: true,
                         digits: true,
                         minlength: 10,
@@ -159,7 +167,7 @@
 
                     "check[]": {
                         required: true
-                    
+
 
                     },
 

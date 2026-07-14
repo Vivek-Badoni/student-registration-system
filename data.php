@@ -7,7 +7,7 @@ if (isset($_POST['save'])) {
     $email =trim( $_POST['email']);
     $phone = trim($_POST['phone']);
     $dob =trim( $_POST['dob']);
-    $message = trim($_POST['message']);
+    $message = trim($_POST['messagee']);
     $file = $_FILES['file']['name'];
     $tmp = $_FILES['file']['tmp_name'];
 
