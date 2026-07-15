@@ -20,29 +20,29 @@ if (isset($_POST['login'])) {
 
             header("Location: logoin.php");
             exit();
-            
+
         } else {
             echo "<script>
-                    Swal.fire({
-                        title: 'Login Failed!',
-                        text: 'Invalid Password!',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                    </script>";
+                            Swal.fire({
+                                title: 'Login Failed!',
+                                text: 'Invalid Password!',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                 </script>";
 
         }
 
     } else {
 
-             echo "<script>
-                Swal.fire({
-                    title: 'Login Failed!',
-                    text: 'Invalid Password!',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                </script>";
+        echo "<script>
+                    Swal.fire({
+                        title: 'Login Failed!',
+                        text: 'Email Not Registered!',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+            </script>";
 
     }
 
@@ -58,7 +58,7 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Login</title>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
