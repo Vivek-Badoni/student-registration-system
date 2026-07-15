@@ -3,10 +3,10 @@
 include("connection.php");
 
 if (isset($_POST['save'])) {
-    $name =trim($_POST['name']);
-    $email =trim( $_POST['email']);
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
     $phone = trim($_POST['phone']);
-    $dob =trim( $_POST['dob']);
+    $dob = trim($_POST['dob']);
     $message = trim($_POST['messagee']);
     $file = $_FILES['file']['name'];
     $tmp = $_FILES['file']['tmp_name'];
@@ -18,7 +18,7 @@ if (isset($_POST['save'])) {
     move_uploaded_file($tmp, "uploads/" . $file);
 
     $check = isset($_POST['check']) ? implode(", ", $_POST['check']) : "";
-    $gender = trim ($_POST['gender']);
+    $gender = trim($_POST['gender']);
 
     $query = "INSERT INTO users
     (name,email,phone,dob,message,file,`check`,gender)
@@ -155,6 +155,7 @@ $users = mysqli_query($conn, "SELECT * FROM users");
                             <th>Qualification</th>
                             <th>Gender</th>
                             <th>Message</th>
+                            <th>Submitted On</th>
                             <th style="width:180px;">Action</th>
 
 
@@ -180,11 +181,13 @@ $users = mysqli_query($conn, "SELECT * FROM users");
                                     <!-- <a href="uploads/<?// php// echo $row['file']; ?>" target="_blank">
                                         <? //php// echo $row['file']; ?>
                                     </a> -->
-                                    <a href="uploads/<?php echo $row['file']; ?> "> <img src="uploads/<?php echo $row['file']; ?>" alt="file" width="70px" > </a>
+                                    <a href="uploads/<?php echo $row['file']; ?> "> <img
+                                            src="uploads/<?php echo $row['file']; ?>" alt="file" width="70px"> </a>
                                 </td>
                                 <td><?php echo $row['check']; ?></td>
                                 <td><?php echo $row['gender']; ?></td>
                                 <td><?php echo $row['message']; ?></td>
+                                <td><?php echo date("d-m-Y h:i A", strtotime($row['created_at'])); ?></td>
                                 <td>
                                     <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm me-2">
                                         Edit
